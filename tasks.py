@@ -66,21 +66,45 @@ def create_writing_task(agent) -> Task:
     )
 
 
+# def create_review_task(agent) -> Task:
+#     """Task 4 placeholder: review compiled deliverables."""
+#     return Task(
+#         description=(
+#             "Add description for Task 4."
+#             # "Review the draft content for '{topic}' for accuracy, completeness, and pedagogy. Provide an executive summary of strengths, "
+#             # "list gaps or issues, and suggest concrete improvements."
+#         ),
+#         expected_output=(
+#             "Add expected output for Task 4."
+#             # "A review report with sections for Summary, Major Findings, Minor Suggestions, and Final Recommendation."
+#         ),
+#         agent=agent,
+#         name="Task 4",  # "Reviewing"
+#     )
+
+# My part of the code(Muhammad Ahmad)
+
 def create_review_task(agent) -> Task:
-    """Task 4 placeholder: review compiled deliverables."""
+    """Task 4: Review the research output for accuracy and completeness."""
     return Task(
         description=(
-            "Add description for Task 4."
-            # "Review the draft content for '{topic}' for accuracy, completeness, and pedagogy. Provide an executive summary of strengths, "
-            # "list gaps or issues, and suggest concrete improvements."
+            "Review the research findings produced in the previous task. "
+            "Check for factual accuracy, clarity, completeness, and proper reasoning. "
+            "Identify missing details, unsupported claims, logical gaps, or unclear explanations. "
+            "Provide constructive, actionable feedback to improve the final research output."
         ),
         expected_output=(
-            "Add expected output for Task 4."
-            # "A review report with sections for Summary, Major Findings, Minor Suggestions, and Final Recommendation."
+            "A structured review report including: "
+            "1) Summary of strengths, "
+            "2) Identified issues or corrections, "
+            "3) Missing or unclear information, "
+            "4) Recommendations for improvement, "
+            "5) Final judgment on whether the research is ready."
         ),
         agent=agent,
         name="Task 4",  # "Reviewing"
     )
+
 
 
 def build_workshop_tasks(planner, researcher, writer, reviewer, research_tools=None) -> List[Task]:
