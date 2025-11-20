@@ -9,25 +9,32 @@ from tools import create_calculator_tool, create_rag_tool, create_web_search_too
 
 
 def create_planning_task(agent) -> Task:
-    """Task 1 placeholder: draft an execution plan."""
+    """Task 1: Create comprehensive execution plan."""
     return Task(
         description=(
-            "Add description for Task 1."
-            # "Analyze the workshop topic '{topic}' and craft a milestone-based execution plan. "
-            # "List required assets, responsible roles, tooling, and a realistic timeline."
+            "Analyze the research topic '{topic}' and create a detailed, step-by-step execution plan. "
+            "Break down the broad objective into specific, manageable tasks with clear timelines and milestones. "
+            "Identify all dependencies between tasks and highlight potential risks or challenges. "
+            "Assign clear responsibilities for each task and define success criteria for every milestone."
         ),
         expected_output=(
-            "Add expected output for Task 1."
-            # "A structured plan including objectives, three to five milestones, resource requirements, "
-            # "risk mitigation ideas, and success metrics."
+            "A comprehensive project roadmap including:\n"
+            "- Clear project objectives and scope definition\n"
+            "- Detailed timeline with specific start/end dates\n"
+            "- 5-7 major milestones with completion criteria\n"
+            "- Task breakdown with assigned responsibilities\n"
+            "- Dependency mapping between tasks\n"
+            "- Risk assessment and mitigation strategies\n"
+            "- Resource allocation and requirements\n"
+            "- Success metrics for each phase"
         ),
         agent=agent,
-        name="Task 1",  # "Planning"
+        name="Strategic Planning",  # "Planning"
     )
 
 
 def create_research_task(agent, tools=None) -> Task:
-    """Task 2 placeholder: gather supporting research."""
+    """Task 2: Gather comprehensive research data."""
     tools = list(tools) if tools is not None else [
         create_rag_tool(),
         create_web_search_tool(),
@@ -35,17 +42,25 @@ def create_research_task(agent, tools=None) -> Task:
     ]
     return Task(
         description=(
-            "Add description for Task 2."
-            # "Use the local knowledge base and live web results to validate the plan for '{topic}'. "
-            # "Cite at least three trustworthy sources and capture data points that justify each milestone."
+            "Execute comprehensive research on the topic '{topic}' using all available tools. "
+            "Gather information from both the local knowledge base and live web sources. "
+            "Validate all information for credibility and accuracy. "
+            "Focus on finding evidence that supports or challenges the planned approach. "
+            "Collect relevant data, statistics, case studies, and expert opinions."
         ),
         expected_output=(
-            "Add expected output for Task 2."
-            # "A bullet list of insights with inline citations, key statistics, and references to the RAG documents."
+            "A detailed research dossier containing:\n"
+            "- Comprehensive findings organized by research areas\n"
+            "- Verified data points and statistics with sources\n"
+            "- Expert opinions and case studies\n"
+            "- Credibility assessment of all sources\n"
+            "- Key insights and patterns identified\n"
+            "- Gaps in current knowledge or data\n"
+            "- Recommendations based on research findings"
         ),
         agent=agent,
         tools=tools,
-        name="Task 2",  # "Research"
+        name="Information Research",  # "Research"
     )
 
 
